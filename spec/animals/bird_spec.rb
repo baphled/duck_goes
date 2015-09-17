@@ -12,4 +12,16 @@ RSpec.describe Animals::Bird do
       expect(subject.speak).to eql('Chirp!')
     end
   end
+
+  describe '.type?' do
+    subject { described_class }
+
+    birds = [ 'falcon', 'magpie', 'raven', 'eagle' ]
+
+    birds.each do |bird|
+      it "finds a #{bird}" do
+        expect(subject.type?(bird)).to be true
+      end
+    end
+  end
 end

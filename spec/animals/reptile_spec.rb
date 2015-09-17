@@ -14,4 +14,16 @@ RSpec.describe Animals::Reptile do
       }.to raise_error Animals::NotImplemented::Speak
     end
   end
+
+  describe '.type?' do
+    subject { described_class }
+
+    reptiles = [ :lizard, :alligator, :crocodile, :snake, :turtle, :tortoise ]
+ 
+    reptiles.each do |reptile|
+      it "finds a #{reptile}" do
+        expect(subject.type?(reptile)).to be true
+      end
+    end
+  end
 end

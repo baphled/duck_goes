@@ -7,5 +7,16 @@ module Animals
     def speak
       'Chirp!'
     end
+
+    protected
+
+    def self.types
+      [
+        :falcon,
+        :magpie,
+        :raven,
+        :eagle,
+      ]
+    end
   end
 end

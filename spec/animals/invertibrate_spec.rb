@@ -14,4 +14,16 @@ RSpec.describe Animals::Invertibrate do
       }.to raise_error Animals::NotImplemented::Speak
     end
   end
+
+  describe '.type?' do
+    subject { described_class }
+
+    invertibrates = [ :insect, :crustacean, :mollusc, :echinoderm, :worm ]
+ 
+    invertibrates.each do |invertibrate|
+      it "finds a #{invertibrate}" do
+        expect(subject.type?(invertibrate)).to be true
+      end
+    end
+  end
 end

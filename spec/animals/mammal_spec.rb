@@ -14,4 +14,16 @@ RSpec.describe Animals::Mammal do
       }.to raise_error Animals::NotImplemented::Speak
     end
   end
+
+  describe '.type?' do
+    subject { described_class }
+
+    mammals = [:rodent, :insectivore, :rabbit_and_hare, :carnivore, :bat, :perrisodactyla, :artiodactyla, :marsupial, :seal, :cetacea]
+ 
+    mammals.each do |mammal|
+      it "finds a #{mammal}" do
+        expect(subject.type?(mammal)).to be true
+      end
+    end
+  end
 end

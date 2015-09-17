@@ -14,5 +14,17 @@ module Animals
         super
       end
     end
+
+    protected
+
+    def self.types
+      [
+        :salamander,
+        :frog,
+        :toad,
+        :newt,
+        :caecilian,
+      ]
+    end
   end
 end

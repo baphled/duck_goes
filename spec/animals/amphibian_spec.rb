@@ -14,5 +14,12 @@ RSpec.describe Animals::Amphibian do
       }.to raise_error Animals::NotImplemented::Speak
     end
   end
-end
 
+  describe '.type?' do
+    subject { described_class }
+
+    it 'finds a salamander' do
+      expect(subject.type?('salamander')).to be true
+    end
+  end
+end

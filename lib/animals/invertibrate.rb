@@ -3,5 +3,17 @@ module Animals
     def move
       'I can move'
     end
+
+    protected
+
+    def self.types
+      [
+        :insect,
+        :crustacean,
+        :mollusc,
+        :echinoderm,
+        :worm,
+      ]
+    end
   end
 end

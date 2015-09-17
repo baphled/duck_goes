@@ -1,17 +1,16 @@
 class Animal
   def self.generate animal_type
-    case animal_type.to_sym
-    when :salamander, :frog, :toad, :newt, :caecilian
+    if Animals::Amphibian.type?(animal_type)
       Animals::Amphibian.new name: animal_type.to_sym
-    when :falcon, :magpie, :raven, :eagle
+    elsif Animals::Bird.type?(animal_type)
       Animals::Bird.new name: animal_type.to_sym
-    when :salmon, :common_carpe, :neon_tetra, :goldfish
+    elsif Animals::Fish.type?(animal_type)
       Animals::Fish.new name: animal_type.to_sym
-    when :insect, :crustacean, :mollusc, :echinoderm, :worm
+    elsif Animals::Invertibrate.type?(animal_type)
       Animals::Invertibrate.new name: animal_type.to_sym
-    when :rodent, :insectivore, :rabbit_and_hare, :carnivore, :bat, :perrisodactyla, :artiodactyla, :marsupial, :seal, :cetacea
+    elsif Animals::Mammal.type?(animal_type)
       Animals::Mammal.new name: animal_type.to_sym
-    when :lizard, :alligator, :crocodile, :snake, :turtle, :tortoise
+    elsif Animals::Reptile.type?(animal_type)
       Animals::Reptile.new name: animal_type.to_sym
     else
       raise Animals::NotImplemented::AnimalGroup.new "animal type not found: #{animal_type}"

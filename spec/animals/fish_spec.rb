@@ -14,4 +14,16 @@ RSpec.describe Animals::Fish do
       }.to raise_error Animals::NotImplemented::Speak
     end
   end
+
+  describe '.type?' do
+    subject { described_class }
+
+    fishes = [ :salmon, :common_carpe, :neon_tetra, :goldfish, ]
+ 
+    fishes.each do |fish|
+      it "finds a #{fish}" do
+        expect(subject.type?(fish)).to be true
+      end
+    end
+  end
 end

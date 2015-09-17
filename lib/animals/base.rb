@@ -17,6 +17,12 @@ module Animals
       raise NotImplemented::Move
     end
 
+    def self.type?(type)
+      self.types.include?(type.to_sym)
+    end
+
+    protected
+
     def self.types
       raise NotImplemented::AnimalTypes
     end
