@@ -11,6 +11,14 @@ RSpec.describe Animals::Base do
     expect(subject.type).to eql(:fox)
   end
 
+  describe '.types' do
+    it 'must be overidden' do
+      expect {
+        described_class.types
+      }.to raise_error Animals::NotImplemented::AnimalTypes
+    end
+  end
+
   describe '#speak' do
     it 'does not know how to speak' do
       expect {

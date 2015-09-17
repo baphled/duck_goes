@@ -11,6 +11,7 @@ RSpec.describe Animal do
         }.to raise_error Animals::NotImplemented::AnimalGroup
       end
     end
+
     context 'an amphibian' do
       amphibians = [ 'salamander', 'frog', 'toad', 'newt', 'caecilian' ]
 

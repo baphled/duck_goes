@@ -16,5 +16,9 @@ module Animals
     def move
       raise NotImplemented::Move
     end
+
+    def self.types
+      raise NotImplemented::AnimalTypes
+    end
   end
 end
