@@ -49,7 +49,6 @@ RSpec.describe Animal do
     end
 
     context 'a fish' do
-
       fishes = [ 'salmon', 'common_carpe', 'neon_tetra', 'goldfish' ]
 
       fishes.each do |fish|
@@ -58,8 +57,35 @@ RSpec.describe Animal do
         end
       end
     end
-    it 'can generate an invertibrate'
-    it 'can generate a mammal'
-    it 'can generate a reptile'
+
+    context 'an invertibrate' do
+      invertibrates = [ 'insect', 'crustacean', 'mollusc', 'echinoderm', 'worm' ]
+
+      invertibrates.each do |invertibrate|
+        it "is a #{invertibrate}" do
+          expect(subject.generate(invertibrate)).to be_an Animals::Invertibrate
+        end
+      end
+    end
+
+    context 'a mammal' do
+      mammals = [ 'rodent', 'insectivore', 'rabbit_and_hare', 'carnivore', 'bat', 'perrisodactyla', 'artiodactyla', 'marsupial', 'seal', 'cetacea' ]
+
+      mammals.each do |mammal|
+        it "is a #{mammal}" do
+          expect(subject.generate(mammal)).to be_an Animals::Mammal
+        end
+      end
+    end
+
+    context 'a reptile' do
+      reptiles = [ 'lizard', 'alligator', 'crocodile', 'snake', 'turtle', 'tortoise' ]
+
+      reptiles.each do |reptile|
+        it "is a #{reptile}" do
+          expect(subject.generate(reptile)).to be_an Animals::Reptile
+        end
+      end
+    end
   end
 end
