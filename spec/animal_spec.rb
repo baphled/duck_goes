@@ -48,7 +48,16 @@ RSpec.describe Animal do
       end
     end
 
-    it 'can generate a fish'
+    context 'a fish' do
+
+      fishes = [ 'salmon', 'common_carpe', 'neon_tetra', 'goldfish' ]
+
+      fishes.each do |fish|
+        it "is a #{fish}" do
+          expect(subject.generate(fish)).to be_an Animals::Fish
+        end
+      end
+    end
     it 'can generate an invertibrate'
     it 'can generate a mammal'
     it 'can generate a reptile'
