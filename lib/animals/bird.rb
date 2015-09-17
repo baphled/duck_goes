@@ -1,7 +1,7 @@
 module Animals
   class Bird < Animals::Base
     def move
-      'It can fly'
+      'I can fly'
     end
 
     def speak
