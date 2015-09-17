@@ -1,7 +1,11 @@
 require "spec_helper"
 
 RSpec.describe Animals::Base do
-  subject { described_class.new }
+  subject { described_class.new(name: :fox) }
+
+  it 'has a name' do
+    expect(subject.name).to eql('Fox')
+  end
 
   describe '#speak' do
     it 'does not know how to speak' do

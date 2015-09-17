@@ -1,3 +1,5 @@
+require_relative 'animal'
+
 require_relative 'animals/base'
 require_relative 'animals/exceptions'
 
