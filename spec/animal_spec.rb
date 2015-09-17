@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 RSpec.describe Animal do
-  subject { described_class }
-
   describe '#generate' do
+    subject { described_class }
+
     context 'unable to generate animal' do
       it 'can not find the animal group' do
         expect {
@@ -77,7 +77,7 @@ RSpec.describe Animal do
     end
 
     context 'a mammal' do
-      mammals = [ 'rodent', 'insectivore', 'rabbit_and_hare', 'carnivore', 'bat', 'perrisodactyla', 'artiodactyla', 'marsupial', 'seal', 'cetacea' ]
+      mammals = [ 'rodent', 'insectivore', 'rabbit', 'hare', 'carnivore', 'bat', 'perrisodactyla', 'artiodactyla', 'marsupial', 'seal', 'cetacea' ]
 
       mammals.each do |mammal|
         it "is a #{mammal}" do
@@ -94,6 +94,93 @@ RSpec.describe Animal do
           expect(subject.generate(reptile)).to be_an Animals::Reptile
         end
       end
+    end
+  end
+
+  describe '.names' do
+    subject { described_class }
+
+    let(:animals) do
+      [
+        :alligator,
+        :artiodactyla,
+        :bat,
+        :caecilian,
+        :carnivore,
+        :cetacea,
+        :common_carpe,
+        :crocodile,
+        :crustacean,
+        :eagle,
+        :echinoderm,
+        :falcon,
+        :frog,
+        :goldfish,
+        :hare,
+        :insect,
+        :insectivore,
+        :lizard,
+        :magpie,
+        :marsupial,
+        :mollusc,
+        :neon_tetra,
+        :newt,
+        :perrisodactyla,
+        :rabbit,
+        :raven,
+        :rodent,
+        :salamander,
+        :salmon,
+        :seal,
+        :snake,
+        :toad,
+        :tortoise,
+        :turtle,
+        :worm,
+      ].sort
+    end
+
+    it 'returns all animal types' do
+      expect(subject.names).to eql(animals)
+    end
+  end
+
+  describe '.groups' do
+    subject { described_class }
+
+    let(:animal_groups) do
+      [
+        :amphibian,
+        :bird,
+        :fish,
+        :invertibrate,
+        :mammal,
+        :reptile
+      ]
+    end
+
+    it 'lists the main animal groups' do
+      expect(subject.groups).to eql(animal_groups)
+    end
+  end
+
+  context 'generated snake' do
+    subject { described_class.generate(:snake) }
+
+    it 'can move' do
+      expect(subject).to respond_to(:move)
+    end
+
+    it 'can speak' do
+      expect(subject).to respond_to(:speak)
+    end
+
+    it 'is a snake' do
+      expect(subject.name).to eql('Snake')
+    end
+
+    it 'has the expected type' do
+      expect(subject.type).to eql(:snake)
     end
   end
 end

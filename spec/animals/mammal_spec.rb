@@ -18,7 +18,7 @@ RSpec.describe Animals::Mammal do
   describe '.type?' do
     subject { described_class }
 
-    mammals = [:rodent, :insectivore, :rabbit_and_hare, :carnivore, :bat, :perrisodactyla, :artiodactyla, :marsupial, :seal, :cetacea]
+    mammals = [:rodent, :insectivore, :rabbit, :hare, :carnivore, :bat, :perrisodactyla, :artiodactyla, :marsupial, :seal, :cetacea]
  
     mammals.each do |mammal|
       it "finds a #{mammal}" do

@@ -10,7 +10,8 @@ module Animals
       [
         :rodent,
         :insectivore,
-        :rabbit_and_hare,
+        :rabbit,
+        :hare,
         :carnivore,
         :bat,
         :perrisodactyla,

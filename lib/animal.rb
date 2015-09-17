@@ -1,3 +1,5 @@
+require 'active_support/inflector'
+
 class Animal
   def self.generate animal_type
     if Animals::Amphibian.type?(animal_type)
@@ -15,5 +17,22 @@ class Animal
     else
       raise Animals::NotImplemented::AnimalGroup.new "animal type not found: #{animal_type}"
     end
+  end
+
+  def self.groups
+    [
+      :amphibian,
+      :bird,
+      :fish,
+      :invertibrate,
+      :mammal,
+      :reptile
+    ]
+  end
+
+  def self.names
+    groups.collect do |animal|
+      "Animals::#{animal.to_s.camelcase}".constantize.types
+    end.flatten.sort
   end
 end
