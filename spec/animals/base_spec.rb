@@ -7,6 +7,10 @@ RSpec.describe Animals::Base do
     expect(subject.name).to eql('Fox')
   end
 
+  it 'has a type' do
+    expect(subject.type).to eql(:fox)
+  end
+
   describe '#speak' do
     it 'does not know how to speak' do
       expect {

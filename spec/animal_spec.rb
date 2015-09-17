@@ -24,7 +24,17 @@ RSpec.describe Animal do
           expect(frog.move).to eql('I can swim')
         end
 
-        it 'croaks'
+        it 'can croaks' do
+          expect(frog.speak).to eql('Croak!')
+        end
+      end
+
+      context 'toad' do
+        let(:toad) { subject.generate(:toad) }
+
+        it 'can ribbit' do
+          expect(toad.speak).to eql('Ribbit!')
+        end
       end
     end
 

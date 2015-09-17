@@ -2,10 +2,11 @@ require 'active_support/inflector'
 
 module Animals
   class Base
-    attr_accessor :name
+    attr_accessor :name, :type
 
     def initialize options = {}
       self.name = options[:name].to_s.humanize
+      self.type = options[:name]
     end
 
     def speak
