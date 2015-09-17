@@ -1,5 +1,4 @@
 require_relative 'animals/base'
 require_relative 'animals/exceptions'
-require_relative 'animals/amphibian'
-require_relative 'animals/bird'
-require_relative 'animals/reptile'
+
+Dir["#{File.dirname(__FILE__)}/animals/**/*.rb"].each {|f| require f}
