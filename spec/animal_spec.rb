@@ -5,7 +5,8 @@ RSpec.describe Animal do
 
   describe '#generate' do
     context 'an amphibian' do
-      amphibians = [ 'salamander', 'frog', 'toad' ]
+      amphibians = [ 'salamander', 'frog', 'toad', 'newt', 'caecilian' ]
+
       amphibians.each do |amphibian|
         it "is a #{amphibian}" do
           expect(subject.generate(amphibian)).to be_an Animals::Amphibian
