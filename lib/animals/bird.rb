@@ -3,5 +3,9 @@ module Animals
     def move
       'It can fly'
     end
+
+    def speak
+      'Chirp!'
+    end
   end
 end

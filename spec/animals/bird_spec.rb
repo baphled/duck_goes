@@ -6,4 +6,10 @@ RSpec.describe Animals::Bird do
       expect(subject.move).to eql('It can fly')
     end
   end
+
+  describe '#speak' do
+    it 'can chirp' do
+      expect(subject.speak).to eql('Chirp!')
+    end
+  end
 end
