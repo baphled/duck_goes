@@ -4,6 +4,13 @@ RSpec.describe Animal do
   subject { described_class }
 
   describe '#generate' do
+    context 'unable to generate animal' do
+      it 'can not find the animal group' do
+        expect {
+          subject.generate(:foo)
+        }.to raise_error Animals::NotImplemented::AnimalGroup
+      end
+    end
     context 'an amphibian' do
       amphibians = [ 'salamander', 'frog', 'toad', 'newt', 'caecilian' ]
 

@@ -13,6 +13,8 @@ class Animal
       Animals::Mammal.new name: animal_type.to_sym
     when :lizard, :alligator, :crocodile, :snake, :turtle, :tortoise
       Animals::Reptile.new name: animal_type.to_sym
+    else
+      raise Animals::NotImplemented::AnimalGroup.new "animal type not found: #{animal_type}"
     end
   end
 end
