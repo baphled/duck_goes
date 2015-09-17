@@ -1,0 +1,1 @@
+class SpeakNotImplemented < Exception; end
