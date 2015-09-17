@@ -38,7 +38,16 @@ RSpec.describe Animal do
       end
     end
 
-    it 'can generate a bird'
+    context 'a bird' do
+      birds = [ 'falcon', 'magpie', 'raven', 'eagle' ]
+
+      birds.each do |bird|
+        it "is a #{bird}" do
+          expect(subject.generate(bird)).to be_an Animals::Bird
+        end
+      end
+    end
+
     it 'can generate a fish'
     it 'can generate an invertibrate'
     it 'can generate a mammal'
