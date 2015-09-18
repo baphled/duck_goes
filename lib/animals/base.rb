@@ -6,7 +6,7 @@ module Animals
 
     def initialize options = {}
       self.name = options[:name].to_s.humanize
-      self.type = options[:name]
+      self.type = self.class.to_s.split('::').last.downcase.to_sym
     end
 
     def speak

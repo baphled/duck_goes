@@ -5,7 +5,7 @@ module Animals
     end
 
     def speak
-      case type
+      case name.downcase.to_sym
       when :frog
         'Croak!'
       when :toad

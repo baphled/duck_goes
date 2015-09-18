@@ -181,7 +181,7 @@ RSpec.describe Animal do
     end
 
     it 'has the expected type' do
-      expect(subject.type).to eql(:snake)
+      expect(subject.type).to eql(:reptile)
     end
   end
 end

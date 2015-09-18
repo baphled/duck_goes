@@ -8,7 +8,7 @@ RSpec.describe Animals::Base do
   end
 
   it 'has a type' do
-    expect(subject.type).to eql(:fox)
+    expect(subject.type).to eql(:base)
   end
 
   describe '.types' do
