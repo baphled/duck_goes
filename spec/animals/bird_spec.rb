@@ -16,7 +16,7 @@ RSpec.describe Animals::Bird do
   describe '.type?' do
     subject { described_class }
 
-    birds = [ 'falcon', 'magpie', 'raven', 'eagle' ]
+    birds = [ 'falcon', 'magpie', 'raven', 'eagle', 'duck' ]
 
     birds.each do |bird|
       it "finds a #{bird}" do

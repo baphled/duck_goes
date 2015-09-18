@@ -16,6 +16,7 @@ module Animals
         :magpie,
         :raven,
         :eagle,
+        :duck,
       ]
     end
   end
