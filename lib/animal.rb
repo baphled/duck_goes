@@ -2,21 +2,11 @@ require 'active_support/inflector'
 
 class Animal
   def self.generate animal_type
-    if Animals::Amphibian.type?(animal_type)
-      Animals::Amphibian.new name: animal_type.to_sym
-    elsif Animals::Bird.type?(animal_type)
-      Animals::Bird.new name: animal_type.to_sym
-    elsif Animals::Fish.type?(animal_type)
-      Animals::Fish.new name: animal_type.to_sym
-    elsif Animals::Invertibrate.type?(animal_type)
-      Animals::Invertibrate.new name: animal_type.to_sym
-    elsif Animals::Mammal.type?(animal_type)
-      Animals::Mammal.new name: animal_type.to_sym
-    elsif Animals::Reptile.type?(animal_type)
-      Animals::Reptile.new name: animal_type.to_sym
-    else
-      raise Animals::NotImplemented::AnimalGroup.new "animal type not found: #{animal_type}"
-    end
+    raise Animals::NotImplemented::AnimalGroup.new("animal type not found: #{animal_type}") unless names.include?(animal_type.to_sym)
+
+    animal = find_animal(animal_type)
+    constant = "Animals::#{animal.to_s.camelcase}".constantize
+    constant.new(name: animal_type)
   end
 
   def self.groups
@@ -34,5 +24,12 @@ class Animal
     groups.collect do |animal|
       "Animals::#{animal.to_s.camelcase}".constantize.types
     end.flatten.sort
+  end
+
+  def self.find_animal(animal_type)
+    groups.select do |animal_group|
+      constant = "Animals::#{animal_group.to_s.camelcase}".constantize
+      constant.type?(animal_type)
+    end.first
   end
 end

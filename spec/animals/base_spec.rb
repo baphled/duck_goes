@@ -12,9 +12,10 @@ RSpec.describe Animals::Base do
   end
 
   describe '.types' do
+    subject { described_class }
     it 'must be overidden' do
       expect {
-        described_class.types
+        subject.types
       }.to raise_error Animals::NotImplemented::AnimalTypes
     end
   end
