@@ -5,6 +5,13 @@ require 'animals'
 
 animal_name = ARGV.shift
 
+if animal_name.nil?
+  puts "Example: bundle exec bin/duck_goes duck\n\n"
+  puts "Please enter one of the following: \n\n#{Animal.names.join(', ')}"
+
+  exit 1;
+end
+
 begin
   animal = Animal.generate(animal_name)
   puts "#{animal_name} is a #{animal.type}"
