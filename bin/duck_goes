@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+require 'animals'
+
+animal_name = ARGV.shift
+
+begin
+  animal = Animal.generate(animal_name)
+  puts "#{animal_name} is a #{animal.class}"
+  puts animal.move
+rescue Animals::NotImplemented::AnimalGroup => e
+  puts e.message
+end
+
