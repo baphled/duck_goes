@@ -47,7 +47,7 @@ RSpec.describe Animal do
     end
 
     context 'a bird' do
-      birds = [ 'falcon', 'magpie', 'raven', 'eagle' ]
+      birds = [ 'falcon', 'magpie', 'raven', 'eagle', 'duck' ]
 
       birds.each do |bird|
         it "is a #{bird}" do
@@ -113,6 +113,7 @@ RSpec.describe Animal do
         :crustacean,
         :eagle,
         :echinoderm,
+        :duck,
         :falcon,
         :frog,
         :goldfish,
